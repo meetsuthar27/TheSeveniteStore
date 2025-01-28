@@ -1,6 +1,6 @@
 import React from "react";
 import { assets } from "../assets/assets";
-import { NavLink } from "react-router-dom";
+import { Link, Links, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -24,6 +24,41 @@ const Navbar = () => {
           <hr className="w-2/4 border-none h-[1.5px] bg-gray-700"></hr>
         </NavLink>
       </ul>
+
+      <div className="flex items-center gap-6">
+        {/* Search Icon */}
+        <img
+          src={assets.search_icon}
+          className="w-5 cursor-pointer"
+          alt="Search Icon"
+        />
+
+        {/* Profile Icon with Dropdown Menu */}
+        <div className="group relative">
+          <img
+            className="w-5 cursor-pointer"
+            src={assets.profile_icon}
+            alt="Profile Icon"
+          />
+          <div className="group-hover:block hidden absolute dropdown-menu right-0">
+            <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100">
+              {/* Dropdown Menu Content */}
+              <a href="#" className="hover:underline">
+                Profile
+              </a>
+              <a href="#" className="hover:underline">
+                Orders
+              </a>
+              <a href="#" className="hover:underline">
+                Logout
+              </a>
+            </div>
+          </div>
+          <Link to="/cart" className="relative">
+            <img src={assets.cart_icon} className="w-5 min-w-5" />
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };
